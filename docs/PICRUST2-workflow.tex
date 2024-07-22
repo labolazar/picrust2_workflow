@@ -128,6 +128,8 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\href{https://github.com/picrust/picrust2/wiki}{PICRUST2 wiki}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -148,12 +150,24 @@ This was already done and does not need to be done again.
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Required input file
+  Required input files
 \end{enumerate}
 
-The input files should be a FASTA of amplicon sequences variants (ASVs; i.e.~your representative sequences, not your raw reads) and a tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns.
+\textbf{Two required files}
+
+\begin{itemize}
+\tightlist
+\item
+  FASTA of amplicon sequences variants (ASVs; i.e.~your representative sequences, not your raw reads)
+\item
+  Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns
+\end{itemize}
 
 Example of both files :
+
+\begin{verbatim}
+## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
+\end{verbatim}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -166,7 +180,7 @@ Example of both files :
 Running picrust throught command line (not R)
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{\alph{enumi}.}
 \tightlist
 \item
   Activate the environnement
@@ -178,6 +192,61 @@ Running picrust throught command line (not R)
 \end{Highlighting}
 \end{Shaded}
 
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Run the full default pipeline
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{picrust2\_pipeline.py} \AttributeTok{{-}s}\NormalTok{ fasta\_file.fna }\AttributeTok{{-}i}\NormalTok{ asv\_file.tsv }\AttributeTok{{-}o}\NormalTok{ picrust2\_out }\AttributeTok{{-}p}\NormalTok{ 12}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Main options :}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{-s} PATH - FASTA of unaligned study sequences
+\item
+  \texttt{-i} PATH - Input table of sequence abundances (BIOM, TSV, or mothur shared file format)
+\item
+  \texttt{-o} PATH - Output folder
+\item
+  \texttt{-p} INT: Number of processes to run in parallel.
+\item
+  \texttt{-\/-skip\_norm} - Skip normalizing sequence abundances by predicted marker gene copy numbers (typically 16S rRNA genes). This step will be performed automatically unless this option is specified (added in v2.2.0-b).
+\item
+  \texttt{-\/-remove\_intermediate} - Remove the intermediate outfiles of the sequence placement and pathway inference steps.
+\item
+  \texttt{-\/-verbose} - If specified, print out wrapped commands to screen.
+\end{itemize}
+
+See \href{https://github.com/picrust/picrust2/wiki/Full-pipeline-script}{wiki} for further options.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Key output files
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{EC\_metagenome\_out} - Folder containing unstratified EC number metagenome predictions
+\item
+  \texttt{pred\_metagenome\_unstrat.tsv.gz} sequence table normalized by predicted 16S copy number abundances (seqtab\_norm.tsv.gz), and the per-sample NSTI values weighted by the abundance of each ASV (weighted\_nsti.tsv.gz).
+\item
+  \texttt{KO\_metagenome\_out} - As EC\_metagenome\_out above, but for KO metagenomes.
+\item
+  \texttt{pathways\_out} - Folder containing predicted pathway abundances and coverages per-sample, based on predicted EC number abundances.
+\end{itemize}
 
   \bibliography{book.bib,packages.bib}
 
