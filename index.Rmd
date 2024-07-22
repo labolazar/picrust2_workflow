@@ -26,26 +26,6 @@ mamba create -n picrust2 -c bioconda -c conda-forge picrust2=2.5.2
 - FASTA of amplicon sequences variants (ASVs; i.e. your representative sequences, not your raw reads) 
 - Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns
 
-Example of both files : 
-
-```{r, echo=FALSE}
-library(glue)
-path="/Users/karinevilleneuve/Library/CloudStorage/OneDrive-UQAM/Github/picrust2_workflow/example_data"
-asv=read.table(file = glue("{path}/asv.tsv"), row.names=1, header = TRUE, check.names=FALSE)
-rna=read.delim(file = glue("{path}/refseq.fna"), header =FALSE)
-```
-
-```{r, echo=FALSE, cache=TRUE}
-library(DT)
-datatable(head(rna), colnames=c(""), rownames = FALSE, caption="Fasta file", options=list(scrollX=T, dom = 't', paging=FALSE, ordering=FALSE)) %>% 
-  formatStyle(names(rna), fontSize = '11px')     
-
-datatable(head(asv[1:6, 1:8]), caption="ASV table", options=list(scrollX=T, dom = 't', paging=FALSE, ordering=FALSE,
-                                                            initComplete = JS("function(settings, json) {",
-                                                                              "$(this.api().table().header()).css({'font-size': '12px'});",
-                                                                              "}"))) %>% formatStyle(columns = colnames(.$x$data), `font-size` = '12px')
-``` 
-
 3. Running the full pipeline 
 
 Running picrust throught command line (not R)
