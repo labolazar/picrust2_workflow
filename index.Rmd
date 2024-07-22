@@ -1,0 +1,35 @@
+--- 
+title: "PICRUST2 Workflow"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+1. Installing PICRUST
+
+This was already done and does not need to be done again. 
+```{bash, eval=FALSE}
+mamba create -n picrust2 -c bioconda -c conda-forge picrust2=2.5.2
+``` 
+
+2. Required input file 
+
+The input files should be a FASTA of amplicon sequences variants (ASVs; i.e. your representative sequences, not your raw reads) and a tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns.
+
+Example of both files : 
+
+
+3. Running the full pipeline 
+
+Running picrust throught command line (not R)
+
+1. Activate the environnement
+```{bash, eval=FALSE}
+mamba activate picrust2
+```
+
+

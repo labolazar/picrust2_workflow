@@ -1,0 +1,6 @@
+book_filename: "PICRUST2 workflow"
+language:
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+output_dir: "docs"
