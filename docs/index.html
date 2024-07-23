@@ -142,6 +142,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="book-summary">
       <nav role="navigation">
 
+<ul class="summary">
+<li><a href="./">PICRUST2 workflow</a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#picrust2-workflow"><i class="fa fa-check"></i><b>1</b> PICRUST2 workflow</a></li>
+</ul>
 
       </nav>
     </div>
@@ -161,6 +166,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">PICRUST2 Workflow</h1>
 </div>
+<div id="picrust2-workflow" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> PICRUST2 workflow<a href="#picrust2-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://github.com/picrust/picrust2/wiki">PICRUST2 wiki</a></p>
 <ol style="list-style-type: decimal">
 <li>Installing PICRUST</li>
@@ -176,10 +183,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns</li>
 </ul>
 <p>Example of both files :</p>
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-638b8259a2ab3663f3cd" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-638b8259a2ab3663f3cd">{"x":{"filter":"none","vertical":false,"caption":"<caption>Fasta file<\/caption>","data":[["&gt;ASV1","GGGGAATATTGGACAATGGGGGCAACCCTGATCCAGCCATGCCGCGTGTGTGAAGAAGGCCTTCGGGTTGTAAAGCACTT","TAAGTGGGGAGGAAGGCTCGCAGATTAATAATCTGCGGGAGTGACGTTACCCACAGAATAAGCCCCGGCTAATCTTACGT","&gt;ASV2","GGGGAATTTTGGACAATGGGCGAAAGCCTGATCCAGCAACTCTGCGTGAGGGACGAAGTCTTTCGGGATGTAAACCTCTT","TTATTGGGGAAGAATACCCGCAAGGGCCTGACGGTACCAGGTGAATAAGCAACGGCTAACTACGTGCCAGCAGCCGCGGT"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'11px'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-79d91f2230df6bdcdce3" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-79d91f2230df6bdcdce3">{"x":{"filter":"none","vertical":false,"caption":"<caption>ASV table<\/caption>","data":[["ASV1","ASV2","ASV3","ASV4","ASV5","ASV6"],[0,0,0,0,16,0],[0,0,0,0,8,0],[0,0,0,0,7,0],[0,0,0,0,11,0],[0,0,0,0,12,0],[0,0,0,0,7,0],[0,0,0,0,9,0],[0,2,19,0,14,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample01<\/th>\n      <th>Sample02<\/th>\n      <th>Sample03<\/th>\n      <th>Sample04<\/th>\n      <th>Sample05<\/th>\n      <th>Sample06<\/th>\n      <th>Sample07<\/th>\n      <th>Sample08<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'font-size': '12px'});\n}","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'12px'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'font-size':'12px'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-size':'12px'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'font-size':'12px'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'font-size':'12px'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'font-size':'12px'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'font-size':'12px'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'font-size':'12px'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'font-size':'12px'});\n}"}},"evals":["options.initComplete","options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-fe4eac402cb9f32c2b47" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fe4eac402cb9f32c2b47">{"x":{"filter":"none","vertical":false,"caption":"<caption>Fasta file<\/caption>","data":[["&gt;ASV1","GGGGAATATTGGACAATGGGGGCAACCCTGATCCAGCCATGCCGCGTGTGTGAAGAAGGCCTTCGGGTTGTAAAGCACTT","TAAGTGGGGAGGAAGGCTCGCAGATTAATAATCTGCGGGAGTGACGTTACCCACAGAATAAGCCCCGGCTAATCTTACGT","&gt;ASV2","GGGGAATTTTGGACAATGGGCGAAAGCCTGATCCAGCAACTCTGCGTGAGGGACGAAGTCTTTCGGGATGTAAACCTCTT","TTATTGGGGAAGAATACCCGCAAGGGCCTGACGGTACCAGGTGAATAAGCAACGGCTAACTACGTGCCAGCAGCCGCGGT"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'11px'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-70755159d7c6616270a4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-70755159d7c6616270a4">{"x":{"filter":"none","vertical":false,"caption":"<caption>ASV table<\/caption>","data":[["ASV1","ASV2","ASV3","ASV4","ASV5","ASV6"],[0,0,0,0,16,0],[0,0,0,0,8,0],[0,0,0,0,7,0],[0,0,0,0,11,0],[0,0,0,0,12,0],[0,0,0,0,7,0],[0,0,0,0,9,0],[0,2,19,0,14,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample01<\/th>\n      <th>Sample02<\/th>\n      <th>Sample03<\/th>\n      <th>Sample04<\/th>\n      <th>Sample05<\/th>\n      <th>Sample06<\/th>\n      <th>Sample07<\/th>\n      <th>Sample08<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'font-size': '12px'});\n}","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'12px'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'font-size':'12px'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-size':'12px'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'font-size':'12px'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'font-size':'12px'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'font-size':'12px'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'font-size':'12px'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'font-size':'12px'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'font-size':'12px'});\n}"}},"evals":["options.initComplete","options.rowCallback"],"jsHooks":[]}</script>
 <ol start="3" style="list-style-type: decimal">
 <li>Running the full pipeline</li>
 </ol>
@@ -213,6 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>pathways_out</code> - Folder containing predicted pathway abundances and coverages per-sample, based on predicted EC number abundances.</li>
 </ul>
 
+</div>
             </section>
 
           </div>
@@ -250,8 +258,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
