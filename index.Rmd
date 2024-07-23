@@ -12,7 +12,7 @@ always_allow_html: true
 
 # Introduction
 
-This guide is a collection of diverse scripts produced by members of the Lazar Lab to analyze data from amplicon sequencing. The scripts assumes that the raw reads were previously proccessed through the DADA2 pipeline and the users have the following : 
+This guide is a collection of diverse scripts produced by members of the Lazar Lab to analyze data from amplicon sequencing. The scripts assume that the raw reads were previously proccessed through the DADA2 pipeline and the users have the following : 
 
 1. Amplicon sequence variant (ASV) abundance table
 2. Taxonomy table 

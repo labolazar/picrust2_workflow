@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="titan2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,8 +150,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="picrust2.html"><a href="picrust2.html#installing-picrust"><i class="fa fa-check"></i><b>2.1</b> Installing PICRUST</a></li>
 <li class="chapter" data-level="2.2" data-path="picrust2.html"><a href="picrust2.html#required-input-files"><i class="fa fa-check"></i><b>2.2</b> Required input files</a></li>
-<li class="chapter" data-level="2.3" data-path="picrust2.html"><a href="picrust2.html#running-full-picrust2-pipeline"><i class="fa fa-check"></i><b>2.3</b> Running full PICRUST2 pipeline</a></li>
-<li class="chapter" data-level="2.4" data-path="picrust2.html"><a href="picrust2.html#key-output-files"><i class="fa fa-check"></i><b>2.4</b> Key output files</a></li>
+<li class="chapter" data-level="2.3" data-path="picrust2.html"><a href="picrust2.html#run-full-picrust2-pipeline"><i class="fa fa-check"></i><b>2.3</b> Run full PICRUST2 pipeline</a></li>
+<li class="chapter" data-level="2.4" data-path="picrust2.html"><a href="picrust2.html#output"><i class="fa fa-check"></i><b>2.4</b> Output</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="titan2.html"><a href="titan2.html"><i class="fa fa-check"></i><b>3</b> TITAN2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="titan2.html"><a href="titan2.html#required-input-files-1"><i class="fa fa-check"></i><b>3.1</b> Required input files</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="titan2.html"><a href="titan2.html#generating-the-required-input-files"><i class="fa fa-check"></i><b>3.1.1</b> Generating the required input files</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="titan2.html"><a href="titan2.html#run-titan2"><i class="fa fa-check"></i><b>3.2</b> Run TITAN2</a></li>
+<li class="chapter" data-level="3.3" data-path="titan2.html"><a href="titan2.html#output-1"><i class="fa fa-check"></i><b>3.3</b> Output</a></li>
 </ul></li>
 </ul>
 
@@ -191,8 +200,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4c4c944e4179be4e5e2a" style="width:100%;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-4c4c944e4179be4e5e2a">{"x":{"filter":"none","vertical":false,"caption":"<caption>ASV table<\/caption>","data":[["ASV1","ASV2","ASV3","ASV4","ASV5","ASV6"],[0,0,0,0,16,0],[0,0,0,0,8,0],[0,0,0,0,7,0],[0,0,0,0,11,0],[0,0,0,0,12,0],[0,0,0,0,7,0],[0,0,0,0,9,0],[0,2,19,0,14,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample01<\/th>\n      <th>Sample02<\/th>\n      <th>Sample03<\/th>\n      <th>Sample04<\/th>\n      <th>Sample05<\/th>\n      <th>Sample06<\/th>\n      <th>Sample07<\/th>\n      <th>Sample08<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'font-size': '12px'});\n}","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'12px'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'font-size':'12px'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-size':'12px'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'font-size':'12px'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'font-size':'12px'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'font-size':'12px'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'font-size':'12px'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'font-size':'12px'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'font-size':'12px'});\n}"}},"evals":["options.initComplete","options.rowCallback"],"jsHooks":[]}</script>
 </div>
-<div id="running-full-picrust2-pipeline" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Running full PICRUST2 pipeline<a href="picrust2.html#running-full-picrust2-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="run-full-picrust2-pipeline" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Run full PICRUST2 pipeline<a href="picrust2.html#run-full-picrust2-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Activate the environnement</li>
 </ol>
@@ -213,8 +222,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>See <a href="https://github.com/picrust/picrust2/wiki/Full-pipeline-script">wiki</a> for further options.</p>
 </div>
-<div id="key-output-files" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Key output files<a href="picrust2.html#key-output-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="output" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Output<a href="picrust2.html#output" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><code>EC_metagenome_out</code> - Folder containing unstratified EC number metagenome predictions</li>
 <li><code>pred_metagenome_unstrat.tsv.gz</code> sequence table normalized by predicted 16S copy number abundances (seqtab_norm.tsv.gz), and the per-sample NSTI values weighted by the abundance of each ASV (weighted_nsti.tsv.gz).</li>
@@ -229,8 +238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="titan2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -2,5 +2,10 @@ introduction
 picrust2
 installing-picrust
 required-input-files
-running-full-picrust2-pipeline
-key-output-files
+run-full-picrust2-pipeline
+output
+titan2
+required-input-files-1
+generating-the-required-input-files
+run-titan2
+output-1
