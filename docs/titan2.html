@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 TITAN2 | Scripts from the Lazar Lab</title>
+  <meta name="description" content="3 TITAN2 | Scripts from the Lazar Lab" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 TITAN2 | Scripts from the Lazar Lab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 TITAN2 | Scripts from the Lazar Lab" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="picrust2.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.29/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lazar Lab scripts</a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>2</b> PICRUST2</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="picrust2.html"><a href="picrust2.html#installing-picrust"><i class="fa fa-check"></i><b>2.1</b> Installing PICRUST</a></li>
+<li class="chapter" data-level="2.2" data-path="picrust2.html"><a href="picrust2.html#required-input-files"><i class="fa fa-check"></i><b>2.2</b> Required input files</a></li>
+<li class="chapter" data-level="2.3" data-path="picrust2.html"><a href="picrust2.html#run-full-picrust2-pipeline"><i class="fa fa-check"></i><b>2.3</b> Run full PICRUST2 pipeline</a></li>
+<li class="chapter" data-level="2.4" data-path="picrust2.html"><a href="picrust2.html#output"><i class="fa fa-check"></i><b>2.4</b> Output</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="titan2.html"><a href="titan2.html"><i class="fa fa-check"></i><b>3</b> TITAN2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="titan2.html"><a href="titan2.html#required-input-files-1"><i class="fa fa-check"></i><b>3.1</b> Required input files</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="titan2.html"><a href="titan2.html#generating-the-required-input-files"><i class="fa fa-check"></i><b>3.1.1</b> Generating the required input files</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="titan2.html"><a href="titan2.html#run-titan2"><i class="fa fa-check"></i><b>3.2</b> Run TITAN2</a></li>
+<li class="chapter" data-level="3.3" data-path="titan2.html"><a href="titan2.html#output-1"><i class="fa fa-check"></i><b>3.3</b> Output</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scripts from the Lazar Lab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="titan2" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> TITAN2<a href="titan2.html#titan2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Threshold Indicator Taxa Analysis</strong></p>
+<ul>
+<li><a href="https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2009.00007.x">Paper</a></li>
+<li><a href="https://cran.r-project.org/web/packages/TITAN2/vignettes/titan2-intro.pdf">Official tutorial</a></li>
+<li><a href="https://uw.pressbooks.pub/appliedmultivariatestatistics/chapter/titan/">Other tutorial</a></li>
+</ul>
+<div id="required-input-files-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Required input files<a href="titan2.html#required-input-files-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The environmental gradient to be tested (i.e., a vector)</li>
+<li>The compositionnal matrix (all taxa must occur at least 3 times)</li>
+</ul>
+<div id="generating-the-required-input-files" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Generating the required input files<a href="titan2.html#generating-the-required-input-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Starting from our ASV table and sample metadata file.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="titan2.html#cb4-1" tabindex="-1"></a><span class="co"># Load required librarires </span></span>
+<span id="cb4-2"><a href="titan2.html#cb4-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="titan2.html#cb4-3" tabindex="-1"></a><span class="fu">library</span>(TITAN2)</span>
+<span id="cb4-4"><a href="titan2.html#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="titan2.html#cb4-5" tabindex="-1"></a><span class="co"># load tables into R </span></span>
+<span id="cb4-6"><a href="titan2.html#cb4-6" tabindex="-1"></a>asv <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;asv.csv&quot;</span>, <span class="at">row.names=</span><span class="dv">1</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">check.names=</span><span class="cn">FALSE</span>) </span>
+<span id="cb4-7"><a href="titan2.html#cb4-7" tabindex="-1"></a>env <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;meta.csv&quot;</span>, <span class="at">row.names=</span><span class="dv">1</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">check.names=</span><span class="cn">FALSE</span>) </span>
+<span id="cb4-8"><a href="titan2.html#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="titan2.html#cb4-9" tabindex="-1"></a><span class="co"># ASV table</span></span>
+<span id="cb4-10"><a href="titan2.html#cb4-10" tabindex="-1"></a><span class="co"># Taxa must occur at least 3 times</span></span>
+<span id="cb4-11"><a href="titan2.html#cb4-11" tabindex="-1"></a><span class="co"># To remove taxa not meeting this requirement we convert matrix to presence/absence</span></span>
+<span id="cb4-12"><a href="titan2.html#cb4-12" tabindex="-1"></a><span class="co"># Create new data frame to be converted to presence/absence </span></span>
+<span id="cb4-13"><a href="titan2.html#cb4-13" tabindex="-1"></a>presabs <span class="ot">=</span> asv</span>
+<span id="cb4-14"><a href="titan2.html#cb4-14" tabindex="-1"></a><span class="co"># Convert to presence/absence </span></span>
+<span id="cb4-15"><a href="titan2.html#cb4-15" tabindex="-1"></a>presabs[presabs <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb4-16"><a href="titan2.html#cb4-16" tabindex="-1"></a><span class="co"># Keep rows with rowSums &gt; 3</span></span>
+<span id="cb4-17"><a href="titan2.html#cb4-17" tabindex="-1"></a>filtered_presabs <span class="ot">=</span> presabs[<span class="fu">rowSums</span>(presabs[]) <span class="sc">&gt;</span> <span class="dv">3</span>,]</span>
+<span id="cb4-18"><a href="titan2.html#cb4-18" tabindex="-1"></a><span class="co"># Keep rows from the original table that are found in the filtered presence/absence matrix (rowSums &gt; 3) </span></span>
+<span id="cb4-19"><a href="titan2.html#cb4-19" tabindex="-1"></a>asv_filt <span class="ot">=</span> asv[<span class="fu">row.names</span>(asv) <span class="sc">%in%</span> <span class="fu">row.names</span>(filtered_presabs),]</span>
+<span id="cb4-20"><a href="titan2.html#cb4-20" tabindex="-1"></a><span class="co"># Transpose table so that samples are rows and taxa are columns </span></span>
+<span id="cb4-21"><a href="titan2.html#cb4-21" tabindex="-1"></a>tasv <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(asv_filt))</span>
+<span id="cb4-22"><a href="titan2.html#cb4-22" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="titan2.html#cb4-23" tabindex="-1"></a><span class="co"># Metadata table</span></span>
+<span id="cb4-24"><a href="titan2.html#cb4-24" tabindex="-1"></a><span class="co"># Keep only column which corresponds to our variable of interest </span></span>
+<span id="cb4-25"><a href="titan2.html#cb4-25" tabindex="-1"></a>env_filt <span class="ot">=</span> envsub[<span class="fu">c</span>(<span class="st">&quot;variable&quot;</span>)]</span></code></pre></div>
+</div>
+</div>
+<div id="run-titan2" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Run TITAN2<a href="titan2.html#run-titan2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="titan2.html#cb5-1" tabindex="-1"></a>titan_out <span class="ot">=</span> <span class="fu">titan</span>(env_filt, tasv)</span></code></pre></div>
+<p><strong>Main options :</strong></p>
+<ul>
+<li><code>minSplt</code> – the minimum split size to use during partitioning. Default is 5. In other words, the smallest number of samples in z- or z+ will be 5; all other samples will be in the other group.</li>
+<li><code>numPerm</code> – number of random permutations to be used during ISA – these are used to derive a distribution of IndVal values for each species. Default is 250, but package authors recommend increasing this to 500 or 1000 during formal analyses so there is less variation among runs. However, increasing this necessarily increases computation time.</li>
+<li><code>boot</code> – whether to conduct bootstrap resampling (TRUE) or not (FALSE). Default is to do so (and is strongly recommended by package authors).</li>
+<li><code>nBoot</code> – number of replicates to use during bootstrap resampling. Default is 500, but package authors recommend using 500 or 1000 for formal analyses.</li>
+<li><code>imax</code> – whether to determine taxon-specific change points based on indicator value (IndVal) maxima (TRUE) or z-score maxima (FALSE; the default).
+-<code>ivTot</code> – whether to calculate indicator value (IndVal) scores using total relative abundance (TRUE) or mean relative abundance (FALSE; the default).</li>
+<li><code>pur.cut</code> – cut-off proportion for determining purity (pure response direction) across bootstrap replicates. The default (0.95) means that 95% of the results from bootstrap replicates agree with the observed response direction.
+-<code>rel.cut</code> – cut-off proportion for determining reliability (reliable response magnitude) across bootstrap replicates. The default (0.95) means that 95% of the results from bootstrap replicates have an IndVal p-value &lt; 0.05.</li>
+</ul>
+</div>
+<div id="output-1" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Output<a href="titan2.html#output-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The species that respond strongly and consistently (i.e., that meet the purity and reliability criteria) are flagged with values of 1 or 2 in the ‘filter’ column. To filter the results to just these species :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="titan2.html#cb6-1" tabindex="-1"></a>df <span class="ot">=</span> titan_out<span class="sc">$</span>sppmax <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="titan2.html#cb6-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="titan2.html#cb6-3" tabindex="-1"></a>  <span class="fu">select</span>(zenv.cp, freq, maxgrp, IndVal, purity, reliability, filter) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="titan2.html#cb6-4" tabindex="-1"></a>  <span class="fu">filter</span>(filter <span class="sc">!=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="titan2.html#cb6-5" tabindex="-1"></a>  <span class="fu">arrange</span>(maxgrp, zenv.cp)</span></code></pre></div>
+<p>A community-level summary of how change relates to the environmental variable is accomplished by adding up the responses of the species in each group. This can be done for all species (<code>sumz-</code> and <code>sumz+</code>) or for the filtered subset that meet the purity and reliability criteria (<code>fsumz-</code> and <code>fsumz+</code>).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="titan2.html#cb7-1" tabindex="-1"></a>titan_out<span class="sc">$</span>sumz <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div>
+<p>The cp column reports the change points at which the community most strongly responded to the environmental variables.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="picrust2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+# TITAN2
+
+**Threshold Indicator Taxa Analysis**
+
+- [Paper](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2009.00007.x)
+- [Official tutorial](https://cran.r-project.org/web/packages/TITAN2/vignettes/titan2-intro.pdf)
+- [Other tutorial](https://uw.pressbooks.pub/appliedmultivariatestatistics/chapter/titan/)
+
+## Required input files
+
+- The environmental gradient to be tested (i.e., a vector)
+- The compositionnal matrix (all taxa must occur at least 3 times)
+
+### Generating the required input files 
+
+Starting from our ASV table and sample metadata file.
+```{r setup, echo=FALSE}
+knitr::opts_knit$set(root.dir = "/Users/karinevilleneuve/OneDrive - UQAM/Github/labolazar_scripts/example_data/titan2")
+```
+
+
+```{r, eval=FALSE}
+# Load required librarires 
+library(dplyr)
+library(TITAN2)
+
+# load tables into R 
+asv = read.csv(file = "asv.csv", row.names=1, header=TRUE, check.names=FALSE) 
+env = read.csv(file = "meta.csv", row.names=1, header=TRUE, check.names=FALSE) 
+
+# ASV table
+# Taxa must occur at least 3 times
+# To remove taxa not meeting this requirement we convert matrix to presence/absence
+# Create new data frame to be converted to presence/absence 
+presabs = asv
+# Convert to presence/absence 
+presabs[presabs > 0] <- 1
+# Keep rows with rowSums > 3
+filtered_presabs = presabs[rowSums(presabs[]) > 3,]
+# Keep rows from the original table that are found in the filtered presence/absence matrix (rowSums > 3) 
+asv_filt = asv[row.names(asv) %in% row.names(filtered_presabs),]
+# Transpose table so that samples are rows and taxa are columns 
+tasv = as.data.frame(t(asv_filt))
+
+# Metadata table
+# Keep only column which corresponds to our variable of interest 
+env_filt = envsub[c("variable")]
+```
+
+## Run TITAN2
+
+```{r, eval=FALSE}
+titan_out = titan(env_filt, tasv)
+```
+
+**Main options :**
+
+- `minSplt` – the minimum split size to use during partitioning.  Default is 5.  In other words, the smallest number of samples in z- or z+ will be 5; all other samples will be in the other group.
+- `numPerm` – number of random permutations to be used during ISA – these are used to derive a distribution of IndVal values for each species.  Default is 250, but package authors recommend increasing this to 500 or 1000 during formal analyses so there is less variation among runs.  However, increasing this necessarily increases computation time.
+- `boot` – whether to conduct bootstrap resampling (TRUE) or not (FALSE).  Default is to do so (and is strongly recommended by package authors).
+- `nBoot` – number of replicates to use during bootstrap resampling.  Default is 500, but package authors recommend using 500 or 1000 for formal analyses.
+- `imax` – whether to determine taxon-specific change points based on indicator value (IndVal) maxima (TRUE) or z-score maxima (FALSE; the default).
+-`ivTot` – whether to calculate indicator value (IndVal) scores using total relative abundance (TRUE) or mean relative abundance (FALSE; the default).
+- `pur.cut` – cut-off proportion for determining purity (pure response direction) across bootstrap replicates.  The default (0.95) means that 95% of the results from bootstrap replicates agree with the observed response direction.
+-`rel.cut` – cut-off proportion for determining reliability (reliable response magnitude) across bootstrap replicates.  The default (0.95) means that 95% of the results from bootstrap replicates have an IndVal p-value < 0.05.
+
+## Output
+
+The species that respond strongly and consistently (i.e., that meet the purity and reliability criteria) are flagged with values of 1 or 2 in the ‘filter’ column. To filter the results to just these species : 
+```{r, eval=FALSE}
+df = titan_out$sppmax %>%
+  as.data.frame() %>%
+  select(zenv.cp, freq, maxgrp, IndVal, purity, reliability, filter) %>%
+  filter(filter != 0) %>%
+  arrange(maxgrp, zenv.cp)
+```
+
+A community-level summary of how change relates to the environmental variable is accomplished by adding up the responses of the species in each group.  This can be done for all species (`sumz-` and `sumz+`) or for the filtered subset that meet the purity and reliability criteria (`fsumz-` and `fsumz+`).
+```{r, eval=FALSE}
+titan_out$sumz %>% round(3)
+```
+The cp column reports the change points at which the community most strongly responded to the environmental variables. 
+
+
+
+
