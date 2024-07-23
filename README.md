@@ -4,6 +4,6 @@ Here you will find different script developped by students from the Lazar Lab to
 
 Example data can be found in folder example. 
 
-[https://labolazar.github.io/picrust2_workflow/](https://labolazar.github.io/scripts/)
+https://labolazar.github.io/scripts/
 
 
