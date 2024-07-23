@@ -1,13 +1,9 @@
 Welcome! 
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+Here you will find different script developped by students from the Lazar Lab to analyse data from amplicon sequencing. 
 
-This template provides a skeleton file structure that you can edit to create your book. 
+Example data can be found in folder example. 
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
+[https://labolazar.github.io/picrust2_workflow/](https://labolazar.github.io/scripts/)
 
-Additional resources:
 
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
