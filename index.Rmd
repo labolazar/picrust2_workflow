@@ -1,5 +1,5 @@
 --- 
-title: "PICRUST2 Workflow"
+title: "Scripts from the Lazar Lab"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -10,74 +10,14 @@ github-repo: rstudio/bookdown-demo
 always_allow_html: true
 ---
 
-# PICRUST2 workflow
+# Introduction
 
-[PICRUST2 wiki](https://github.com/picrust/picrust2/wiki)
+This guide is a collection of diverse scripts produced by members of the Lazar Lab to analyze data from amplicon sequencing. The scripts assumes that the raw reads were previously proccessed through the DADA2 pipeline and the users have the following : 
 
-1. Installing PICRUST
+1. Amplicon sequence variant (ASV) abundance table
+2. Taxonomy table 
+3. Sample metadata table
 
-This was already done and does not need to be done again. 
-```{bash, eval=FALSE}
-mamba create -n picrust2 -c bioconda -c conda-forge picrust2=2.5.2
-``` 
+For any questions or comments please email : karine.villeneuve12@gmail.com
 
-2. Required input files
-
-**Two required files**
-
-- FASTA of amplicon sequences variants (ASVs; i.e. your representative sequences, not your raw reads) 
-- Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns
-
-Example of both files : 
-
-```{r, echo=FALSE}
-library(glue)
-path="/Users/karinevilleneuve/Library/CloudStorage/OneDrive-UQAM/Github/picrust2_workflow/example_data"
-asv=read.table(file = glue("{path}/asv.tsv"), row.names=1, header = TRUE, check.names=FALSE)
-rna=read.delim(file = glue("{path}/refseq.fna"), header =FALSE)
-```
-
-```{r, echo=FALSE, cache=TRUE}
-library(DT)
-datatable(head(rna), colnames=c(""), rownames = FALSE, caption="Fasta file", options=list(scrollX=T, dom = 't', paging=FALSE, ordering=FALSE)) %>% 
-  formatStyle(names(rna), fontSize = '11px')     
-
-datatable(head(asv[1:6, 1:8]), caption="ASV table", options=list(scrollX=T, dom = 't', paging=FALSE, ordering=FALSE,
-                                                            initComplete = JS("function(settings, json) {",
-                                                                              "$(this.api().table().header()).css({'font-size': '12px'});",
-                                                                              "}"))) %>% formatStyle(columns = colnames(.$x$data), `font-size` = '12px')
-``` 
-
-3. Running the full pipeline 
-
-Running picrust throught command line (not R)
-
-a. Activate the environnement
-```{bash, eval=FALSE}
-mamba activate picrust2
-```
-
-b. Run the full default pipeline
-```{bash, eval=FALSE}
-picrust2_pipeline.py -s fasta_file.fna -i asv_file.tsv -o picrust2_out -p 12
-```
-
-**Main options :**
-
-- `-s` PATH - FASTA of unaligned study sequences
-- `-i` PATH - Input table of sequence abundances (BIOM, TSV, or mothur shared file format)
-- `-o` PATH - Output folder
-- `-p` INT: Number of processes to run in parallel.
-- `--skip_norm` - Skip normalizing sequence abundances by predicted marker gene copy numbers (typically 16S rRNA genes). This step will be performed automatically unless this option is specified (added in v2.2.0-b).
-- `--remove_intermediate` - Remove the intermediate outfiles of the sequence placement and pathway inference steps.
-- `--verbose` - If specified, print out wrapped commands to screen.
-
-See [wiki](https://github.com/picrust/picrust2/wiki/Full-pipeline-script) for further options. 
-
-4. Key output files 
-
-- `EC_metagenome_out` - Folder containing unstratified EC number metagenome predictions
-- `pred_metagenome_unstrat.tsv.gz` sequence table normalized by predicted 16S copy number abundances (seqtab_norm.tsv.gz), and the per-sample NSTI values weighted by the abundance of each ASV (weighted_nsti.tsv.gz).
-- `KO_metagenome_out` - As EC_metagenome_out above, but for KO metagenomes.
-- `pathways_out` - Folder containing predicted pathway abundances and coverages per-sample, based on predicted EC number abundances.
-
+Enjoy and happy data analysis !

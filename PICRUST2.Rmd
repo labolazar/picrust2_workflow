@@ -1,0 +1,69 @@
+# PICRUST2
+
+[PICRUST2 wiki](https://github.com/picrust/picrust2/wiki)
+
+## Installing PICRUST
+
+If PICRUST2 is not already installed on your system it can be installed with [mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) or from source. It is recommended that users use the mamba package, which is a reimplementation of conda in C++, which typically increases the installation time substantially (the default conda can sometimes get stuck solving environments for hours at a time, which is a problem facing conda environments in general).
+
+The following code installs PICRUST2 using mamba: 
+```{bash, eval=FALSE}
+mamba create -n picrust2 -c bioconda -c conda-forge picrust2=2.5.2
+``` 
+
+## Required input files
+
+- FASTA of amplicon sequences variants (ASVs; i.e. your representative sequences, not your raw reads) 
+- Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns
+
+Example of both files : 
+
+```{r, echo=FALSE}
+library(glue)
+path="/Users/karinevilleneuve/Library/CloudStorage/OneDrive-UQAM/Github/labolazar_scripts/example_data/picrust2"
+asv=read.table(file = glue("{path}/asv.tsv"), row.names=1, header = TRUE, check.names=FALSE)
+rna=read.delim(file = glue("{path}/refseq.fna"), header =FALSE)
+```
+
+```{r, echo=FALSE, cache=TRUE}
+library(DT)
+datatable(head(rna), colnames=c(""), rownames = FALSE, caption="Fasta file", options=list(scrollX=T, dom = 't', paging=FALSE, ordering=FALSE)) %>% 
+  formatStyle(names(rna), fontSize = '11px')     
+
+datatable(head(asv[1:6, 1:8]), caption="ASV table", options=list(scrollX=T, dom = 't', paging=FALSE, ordering=FALSE,
+                                                            initComplete = JS("function(settings, json) {",
+                                                                              "$(this.api().table().header()).css({'font-size': '12px'});",
+                                                                              "}"))) %>% formatStyle(columns = colnames(.$x$data), `font-size` = '12px')
+``` 
+
+## Running full PICRUST2 pipeline 
+
+1. Activate the environnement
+```{bash, eval=FALSE}
+mamba activate picrust2
+```
+
+2. Run the full default pipeline
+```{bash, eval=FALSE}
+picrust2_pipeline.py -s fasta_file.fna -i asv_file.tsv -o picrust2_out -p 12
+```
+
+**Main options :**
+
+- `-s` PATH - FASTA of unaligned study sequences
+- `-i` PATH - Input table of sequence abundances (BIOM, TSV, or mothur shared file format)
+- `-o` PATH - Output folder
+- `-p` INT: Number of processes to run in parallel.
+- `--skip_norm` - Skip normalizing sequence abundances by predicted marker gene copy numbers (typically 16S rRNA genes). This step will be performed automatically unless this option is specified (added in v2.2.0-b).
+- `--remove_intermediate` - Remove the intermediate outfiles of the sequence placement and pathway inference steps.
+- `--verbose` - If specified, print out wrapped commands to screen.
+
+See [wiki](https://github.com/picrust/picrust2/wiki/Full-pipeline-script) for further options. 
+
+## Key output files 
+
+- `EC_metagenome_out` - Folder containing unstratified EC number metagenome predictions
+- `pred_metagenome_unstrat.tsv.gz` sequence table normalized by predicted 16S copy number abundances (seqtab_norm.tsv.gz), and the per-sample NSTI values weighted by the abundance of each ASV (weighted_nsti.tsv.gz).
+- `KO_metagenome_out` - As EC_metagenome_out above, but for KO metagenomes.
+- `pathways_out` - Folder containing predicted pathway abundances and coverages per-sample, based on predicted EC number abundances.
+

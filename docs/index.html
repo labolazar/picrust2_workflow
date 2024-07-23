@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PICRUST2 Workflow</title>
-  <meta name="description" content="PICRUST2 Workflow" />
+  <title>Scripts from the Lazar Lab</title>
+  <meta name="description" content="Scripts from the Lazar Lab" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PICRUST2 Workflow" />
+  <meta property="og:title" content="Scripts from the Lazar Lab" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PICRUST2 Workflow" />
+  <meta name="twitter:title" content="Scripts from the Lazar Lab" />
   
   
   
@@ -29,7 +29,7 @@
   
   
 
-
+<link rel="next" href="picrust2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -143,9 +143,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">PICRUST2 workflow</a></li>
+<li><a href="./">Lazar Lab scripts</a></li>
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="#picrust2-workflow"><i class="fa fa-check"></i><b>1</b> PICRUST2 workflow</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>2</b> PICRUST2</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="picrust2.html"><a href="picrust2.html#installing-picrust"><i class="fa fa-check"></i><b>2.1</b> Installing PICRUST</a></li>
+<li class="chapter" data-level="2.2" data-path="picrust2.html"><a href="picrust2.html#required-input-files"><i class="fa fa-check"></i><b>2.2</b> Required input files</a></li>
+<li class="chapter" data-level="2.3" data-path="picrust2.html"><a href="picrust2.html#running-full-picrust2-pipeline"><i class="fa fa-check"></i><b>2.3</b> Running full PICRUST2 pipeline</a></li>
+<li class="chapter" data-level="2.4" data-path="picrust2.html"><a href="picrust2.html#key-output-files"><i class="fa fa-check"></i><b>2.4</b> Key output files</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -155,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PICRUST2 Workflow</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scripts from the Lazar Lab</a>
           </h1>
         </div>
 
@@ -164,61 +171,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">PICRUST2 Workflow</h1>
+<h1 class="title">Scripts from the Lazar Lab</h1>
 </div>
-<div id="picrust2-workflow" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> PICRUST2 workflow<a href="#picrust2-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><a href="https://github.com/picrust/picrust2/wiki">PICRUST2 wiki</a></p>
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This guide is a collection of diverse scripts produced by members of the Lazar Lab to analyze data from amplicon sequencing. The scripts assumes that the raw reads were previously proccessed through the DADA2 pipeline and the users have the following :</p>
 <ol style="list-style-type: decimal">
-<li>Installing PICRUST</li>
+<li>Amplicon sequence variant (ASV) abundance table</li>
+<li>Taxonomy table</li>
+<li>Sample metadata table</li>
 </ol>
-<p>This was already done and does not need to be done again.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> picrust2 <span class="at">-c</span> bioconda <span class="at">-c</span> conda-forge picrust2=2.5.2</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Required input files</li>
-</ol>
-<p><strong>Two required files</strong></p>
-<ul>
-<li>FASTA of amplicon sequences variants (ASVs; i.e. your representative sequences, not your raw reads)</li>
-<li>Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns</li>
-</ul>
-<p>Example of both files :</p>
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-fe4eac402cb9f32c2b47" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fe4eac402cb9f32c2b47">{"x":{"filter":"none","vertical":false,"caption":"<caption>Fasta file<\/caption>","data":[["&gt;ASV1","GGGGAATATTGGACAATGGGGGCAACCCTGATCCAGCCATGCCGCGTGTGTGAAGAAGGCCTTCGGGTTGTAAAGCACTT","TAAGTGGGGAGGAAGGCTCGCAGATTAATAATCTGCGGGAGTGACGTTACCCACAGAATAAGCCCCGGCTAATCTTACGT","&gt;ASV2","GGGGAATTTTGGACAATGGGCGAAAGCCTGATCCAGCAACTCTGCGTGAGGGACGAAGTCTTTCGGGATGTAAACCTCTT","TTATTGGGGAAGAATACCCGCAAGGGCCTGACGGTACCAGGTGAATAAGCAACGGCTAACTACGTGCCAGCAGCCGCGGT"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'11px'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-70755159d7c6616270a4" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-70755159d7c6616270a4">{"x":{"filter":"none","vertical":false,"caption":"<caption>ASV table<\/caption>","data":[["ASV1","ASV2","ASV3","ASV4","ASV5","ASV6"],[0,0,0,0,16,0],[0,0,0,0,8,0],[0,0,0,0,7,0],[0,0,0,0,11,0],[0,0,0,0,12,0],[0,0,0,0,7,0],[0,0,0,0,9,0],[0,2,19,0,14,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample01<\/th>\n      <th>Sample02<\/th>\n      <th>Sample03<\/th>\n      <th>Sample04<\/th>\n      <th>Sample05<\/th>\n      <th>Sample06<\/th>\n      <th>Sample07<\/th>\n      <th>Sample08<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'font-size': '12px'});\n}","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'12px'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'font-size':'12px'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-size':'12px'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'font-size':'12px'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'font-size':'12px'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'font-size':'12px'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'font-size':'12px'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'font-size':'12px'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'font-size':'12px'});\n}"}},"evals":["options.initComplete","options.rowCallback"],"jsHooks":[]}</script>
-<ol start="3" style="list-style-type: decimal">
-<li>Running the full pipeline</li>
-</ol>
-<p>Running picrust throught command line (not R)</p>
-<ol style="list-style-type: lower-alpha">
-<li>Activate the environnement</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">mamba</span> activate picrust2</span></code></pre></div>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Run the full default pipeline</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">picrust2_pipeline.py</span> <span class="at">-s</span> fasta_file.fna <span class="at">-i</span> asv_file.tsv <span class="at">-o</span> picrust2_out <span class="at">-p</span> 12</span></code></pre></div>
-<p><strong>Main options :</strong></p>
-<ul>
-<li><code>-s</code> PATH - FASTA of unaligned study sequences</li>
-<li><code>-i</code> PATH - Input table of sequence abundances (BIOM, TSV, or mothur shared file format)</li>
-<li><code>-o</code> PATH - Output folder</li>
-<li><code>-p</code> INT: Number of processes to run in parallel.</li>
-<li><code>--skip_norm</code> - Skip normalizing sequence abundances by predicted marker gene copy numbers (typically 16S rRNA genes). This step will be performed automatically unless this option is specified (added in v2.2.0-b).</li>
-<li><code>--remove_intermediate</code> - Remove the intermediate outfiles of the sequence placement and pathway inference steps.</li>
-<li><code>--verbose</code> - If specified, print out wrapped commands to screen.</li>
-</ul>
-<p>See <a href="https://github.com/picrust/picrust2/wiki/Full-pipeline-script">wiki</a> for further options.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Key output files</li>
-</ol>
-<ul>
-<li><code>EC_metagenome_out</code> - Folder containing unstratified EC number metagenome predictions</li>
-<li><code>pred_metagenome_unstrat.tsv.gz</code> sequence table normalized by predicted 16S copy number abundances (seqtab_norm.tsv.gz), and the per-sample NSTI values weighted by the abundance of each ASV (weighted_nsti.tsv.gz).</li>
-<li><code>KO_metagenome_out</code> - As EC_metagenome_out above, but for KO metagenomes.</li>
-<li><code>pathways_out</code> - Folder containing predicted pathway abundances and coverages per-sample, based on predicted EC number abundances.</li>
-</ul>
+<p>For any questions or comments please email : <a href="mailto:karine.villeneuve12@gmail.com" class="email">karine.villeneuve12@gmail.com</a></p>
+<p>Enjoy and happy data analysis !</p>
 
 </div>
             </section>
@@ -227,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-
+<a href="picrust2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

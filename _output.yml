@@ -3,4 +3,4 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">PICRUST2 workflow</a></li>
+        <li><a href="./">Lazar Lab scripts</a></li>

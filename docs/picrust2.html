@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 PICRUST2 | Scripts from the Lazar Lab</title>
+  <meta name="description" content="2 PICRUST2 | Scripts from the Lazar Lab" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 PICRUST2 | Scripts from the Lazar Lab" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 PICRUST2 | Scripts from the Lazar Lab" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.29/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lazar Lab scripts</a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>2</b> PICRUST2</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="picrust2.html"><a href="picrust2.html#installing-picrust"><i class="fa fa-check"></i><b>2.1</b> Installing PICRUST</a></li>
+<li class="chapter" data-level="2.2" data-path="picrust2.html"><a href="picrust2.html#required-input-files"><i class="fa fa-check"></i><b>2.2</b> Required input files</a></li>
+<li class="chapter" data-level="2.3" data-path="picrust2.html"><a href="picrust2.html#running-full-picrust2-pipeline"><i class="fa fa-check"></i><b>2.3</b> Running full PICRUST2 pipeline</a></li>
+<li class="chapter" data-level="2.4" data-path="picrust2.html"><a href="picrust2.html#key-output-files"><i class="fa fa-check"></i><b>2.4</b> Key output files</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scripts from the Lazar Lab</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="picrust2" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> PICRUST2<a href="picrust2.html#picrust2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><a href="https://github.com/picrust/picrust2/wiki">PICRUST2 wiki</a></p>
+<div id="installing-picrust" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Installing PICRUST<a href="picrust2.html#installing-picrust" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If PICRUST2 is not already installed on your system it can be installed with <a href="https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html">mamba</a> or from source. It is recommended that users use the mamba package, which is a reimplementation of conda in C++, which typically increases the installation time substantially (the default conda can sometimes get stuck solving environments for hours at a time, which is a problem facing conda environments in general).</p>
+<p>The following code installs PICRUST2 using mamba:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="picrust2.html#cb1-1" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> picrust2 <span class="at">-c</span> bioconda <span class="at">-c</span> conda-forge picrust2=2.5.2</span></code></pre></div>
+</div>
+<div id="required-input-files" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Required input files<a href="picrust2.html#required-input-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>FASTA of amplicon sequences variants (ASVs; i.e. your representative sequences, not your raw reads)</li>
+<li>Tab-delimited table with ASV ids as the first column and sample abundances as all subsequent columns</li>
+</ul>
+<p>Example of both files :</p>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f9da5497c837cb017871" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f9da5497c837cb017871">{"x":{"filter":"none","vertical":false,"caption":"<caption>Fasta file<\/caption>","data":[["&gt;ASV1","GGGGAATATTGGACAATGGGGGCAACCCTGATCCAGCCATGCCGCGTGTGTGAAGAAGGCCTTCGGGTTGTAAAGCACTT","TAAGTGGGGAGGAAGGCTCGCAGATTAATAATCTGCGGGAGTGACGTTACCCACAGAATAAGCCCCGGCTAATCTTACGT","&gt;ASV2","GGGGAATTTTGGACAATGGGCGAAAGCCTGATCCAGCAACTCTGCGTGAGGGACGAAGTCTTTCGGGATGTAAACCTCTT","TTATTGGGGAAGAATACCCGCAAGGGCCTGACGGTACCAGGTGAATAAGCAACGGCTAACTACGTGCCAGCAGCCGCGGT"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'11px'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4c4c944e4179be4e5e2a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4c4c944e4179be4e5e2a">{"x":{"filter":"none","vertical":false,"caption":"<caption>ASV table<\/caption>","data":[["ASV1","ASV2","ASV3","ASV4","ASV5","ASV6"],[0,0,0,0,16,0],[0,0,0,0,8,0],[0,0,0,0,7,0],[0,0,0,0,11,0],[0,0,0,0,12,0],[0,0,0,0,7,0],[0,0,0,0,9,0],[0,2,19,0,14,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sample01<\/th>\n      <th>Sample02<\/th>\n      <th>Sample03<\/th>\n      <th>Sample04<\/th>\n      <th>Sample05<\/th>\n      <th>Sample06<\/th>\n      <th>Sample07<\/th>\n      <th>Sample08<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"t","paging":false,"ordering":false,"initComplete":"function(settings, json) {\n$(this.api().table().header()).css({'font-size': '12px'});\n}","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-size':'12px'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'font-size':'12px'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-size':'12px'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'font-size':'12px'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'font-size':'12px'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'font-size':'12px'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'font-size':'12px'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'font-size':'12px'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'font-size':'12px'});\n}"}},"evals":["options.initComplete","options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="running-full-picrust2-pipeline" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Running full PICRUST2 pipeline<a href="picrust2.html#running-full-picrust2-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Activate the environnement</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="picrust2.html#cb2-1" tabindex="-1"></a><span class="ex">mamba</span> activate picrust2</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Run the full default pipeline</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="picrust2.html#cb3-1" tabindex="-1"></a><span class="ex">picrust2_pipeline.py</span> <span class="at">-s</span> fasta_file.fna <span class="at">-i</span> asv_file.tsv <span class="at">-o</span> picrust2_out <span class="at">-p</span> 12</span></code></pre></div>
+<p><strong>Main options :</strong></p>
+<ul>
+<li><code>-s</code> PATH - FASTA of unaligned study sequences</li>
+<li><code>-i</code> PATH - Input table of sequence abundances (BIOM, TSV, or mothur shared file format)</li>
+<li><code>-o</code> PATH - Output folder</li>
+<li><code>-p</code> INT: Number of processes to run in parallel.</li>
+<li><code>--skip_norm</code> - Skip normalizing sequence abundances by predicted marker gene copy numbers (typically 16S rRNA genes). This step will be performed automatically unless this option is specified (added in v2.2.0-b).</li>
+<li><code>--remove_intermediate</code> - Remove the intermediate outfiles of the sequence placement and pathway inference steps.</li>
+<li><code>--verbose</code> - If specified, print out wrapped commands to screen.</li>
+</ul>
+<p>See <a href="https://github.com/picrust/picrust2/wiki/Full-pipeline-script">wiki</a> for further options.</p>
+</div>
+<div id="key-output-files" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Key output files<a href="picrust2.html#key-output-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><code>EC_metagenome_out</code> - Folder containing unstratified EC number metagenome predictions</li>
+<li><code>pred_metagenome_unstrat.tsv.gz</code> sequence table normalized by predicted 16S copy number abundances (seqtab_norm.tsv.gz), and the per-sample NSTI values weighted by the abundance of each ASV (weighted_nsti.tsv.gz).</li>
+<li><code>KO_metagenome_out</code> - As EC_metagenome_out above, but for KO metagenomes.</li>
+<li><code>pathways_out</code> - Folder containing predicted pathway abundances and coverages per-sample, based on predicted EC number abundances.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

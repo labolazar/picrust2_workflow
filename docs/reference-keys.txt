@@ -1,1 +1,6 @@
-picrust2-workflow
+introduction
+picrust2
+installing-picrust
+required-input-files
+running-full-picrust2-pipeline
+key-output-files
